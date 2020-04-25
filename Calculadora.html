@@ -8,6 +8,50 @@
 </head>
 
 <body>
+
+    <script>
+        function Somar() {
+            let n1 = parseInt(document.body.children[2].children[1].value)
+            let n2 = parseInt(document.body.children[2].children[3].value)
+
+            soma = n1 + n2
+
+            resultado.innerText = soma
+            window.alert(`O resultado da soma de ${n1} + ${n2} é : ${soma}`)
+        }
+
+        function Sub() {
+            let n1 = parseInt(document.body.children[2].children[1].value)
+            let n2 = parseInt(document.body.children[2].children[3].value)
+
+            subtracao = n1 - n2
+
+            resultado.innerText = subtracao
+            window.alert(`O resultado da subtração de ${n1} - ${n2} é : ${subtracao}`)
+        }
+
+
+        function Mult() {
+            let n1 = parseInt(document.body.children[2].children[1].value)
+            let n2 = parseInt(document.body.children[2].children[3].value)
+
+            multiplicacao = n1 * n2
+
+            resultado.innerText = multiplicacao
+            window.alert(`O resultado da multiplicação de ${n1} * ${n2} é : ${multiplicacao}`)
+        }
+
+        function Divi() {
+            let n1 = parseInt(document.body.children[2].children[1].value)
+            let n2 = parseInt(document.body.children[2].children[3].value)
+
+            divisao = n1 / n2
+
+            resultado.innerText = divisao
+            window.alert(`O resultado da subtração de ${n1} / ${n2} é : ${divisao}`)
+        }
+
+    </script>
     <div>
         <label>Calculadora</label>
     </div>
@@ -24,20 +68,22 @@
 
 
     <div>
-        <button>+</button>
-        <button>-</button>
+        <button onclick="Somar()">+</button>
+        <button onclick="Sub()">-</button>
     </div>
 
 
     <div>
-        <button>*</button>
-        <button>/</button>
+        <button onclick="Mult()">*</button>
+        <button onclick="Divi()">/</button>
     </div>
 
 
 
     <div>
         <label>Resultado:</label>
+        id= "resultado"
+
     </div>
 
     <div>
