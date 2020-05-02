@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,49 @@
 
 <body>
 
+    <script>
+
+        function Calcular_Salario() {
+
+            let salario = parseInt(document.body.children[2].children[1].value)
+            let filhos = parseInt(document.body.children[3].children[1].value)
+            let imposto = 6
+
+            bonificacao_filhos = (filhos * 0.05) * salario   // Váriavel que calcula a bonificação do filho em cima do salário. 
+            imposto = (imposto / 100) * (bonificacao_filhos + salario)  //Váriavel que calcula o imposto em cima do salario já com a bonificação de filho.
+            calcular = salario + bonificacao_filhos - imposto            // Calcula o valor do salário final !
+
+
+
+            window.alert(`Seu salário é de ${calcular}`)
+        }
+
+
+    </script>
+
     <div>
         <label>Calculadora de Salario</label>
     </div>
 
-    
+    <div>
+        <label>Salário :</label>
+        <input type="number">
+
+    </div>
+
+    <div>
+        <label> Filhos :</label>
+        <input type="number">
+
+    </div>
 
 
-    
+    <div>
+        <button onclick="Calcular_Salario()">Calcular</button>
+    </div>
+
+
+
 </body>
+
 </html>

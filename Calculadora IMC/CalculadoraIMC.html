@@ -15,12 +15,13 @@
         function Calcular_IMC() {
 
 
-            let peso = document.body.children[2].children[1].value
-            let altura = document.body.children[3].children[1].value
+            let peso = parseFloat(document.body.children[2].children[1].value)
+            let altura = parseFloat(document.body.children[3].children[1].value)
 
 
             imc = peso / altura ** 2
-            window.alert(`O seu IMC é : ${imc} !`)
+
+            window.alert(`O seu IMC é : ${imc.toFixed(0)} !`)
 
 
         }
