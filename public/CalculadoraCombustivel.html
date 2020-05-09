@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Combustível</title>
+    <script>
+        function calcular() {
+            let preco_a = parseFloat(preco_alcool.value)
+            let preco_g = parseFloat(preco_gasol.value)
+
+            let consumo_a = parseFloat(consumo_alcool.value)
+            let consumo_g = parseFloat(consumo_gasol.value)
+
+
+            let res_a = preco_a / consumo_a
+            let res_g = preco_g / consumo_g
+
+            if (res_g < res_a) {
+                resuldado.innerText = "Gasolina"
+            } else {
+                resuldado.innerText = "Alcool"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <h1> Calculadora Combustível </h1>
+    </div>
+    <div>
+
+        <div> <input type="number" id="preco_alcool" placeholder="Preço Álcool" value="2.90"></div>
+        <div> <input type="number" id="preco_gasol" placeholder="Preço Gasolina" value="3.90"></div>
+        <div> <input type="number" id="consumo_alcool" placeholder="Consumo Álcool" value="10"></div>
+        <div> <input type="number" id="consumo_gasol" placeholder="Consumo Gasolina" value="15"></div>
+        <div> <button onclick="calcular()"> Calcular </button> </div>
+        <div> <label> Melhor Opção:</label>
+            <label id="resuldado"> </label>
+        </div>
+    </div>
+</body>
+
+</html>
