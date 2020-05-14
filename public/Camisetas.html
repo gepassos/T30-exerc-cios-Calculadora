@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function camisetas() {
+            camiseta_p = parseInt(camiseta_pequena.value) || 0
+            camiseta_m = parseInt(camiseta_media.value) || 0
+            camiseta_g = parseInt(camiseta_grande.value) || 0
+            resultado = 0
+            camisetapvalor = 10.00
+            camisetamvalor = 12.00
+            camisetagvalor = 15.00
+
+            if (camiseta_p <= 0) {
+
+            } else {
+                resultado += camiseta_p * camisetapvalor
+            } if (camiseta_m <= 0) {
+
+            } else {
+                resultado += camiseta_m * camisetamvalor
+            } if (camiseta_g <= 0) {
+
+            } else {
+                resultado += camiseta_g * camisetagvalor
+            }
+
+            alert(`O preço é : ${resultado}`)
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <label>Quantidade de camisetas P</label>
+        <input id="camiseta_pequena" type="number">
+    </div>
+    <div>
+        <label>Quantidade de camisetas M</label>
+        <input id="camiseta_media" type="number">
+    </div>
+    <div>
+        <label>Quantidade de camisetas G</label>
+        <input id="camiseta_grande" type="number">
+    </div>
+
+    <div>
+        <button onclick="camisetas()">Calcular preço</button>
+
+    </div>
+
+</body>
+
+</html>
