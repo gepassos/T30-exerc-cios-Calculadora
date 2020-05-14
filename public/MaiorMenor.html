@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar o Maior</title>
+
+    <script>
+        function VerificarMaior() {
+            let n1 = parseInt(numero_1.value)
+            let n2 = parseInt(numero_2.value)
+            if (n1 == n2) {
+                alert('Os números são iguais')
+            } else {
+                if (n1 > n2) {
+                    alert(`O número maior é : ${n1}`)
+                } else {
+                    alert(`O número maior é : ${n2}`)
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <labe>Calcular número maior</labe>
+    <div>
+        <label>Numero 1</label>
+        <input id="numero_1" type="number">
+    </div>
+    <div>
+        <label>Numero 2</label>
+        <input id="numero_2" type="number">
+    </div>
+    <div><button onclick="VerificarMaior()">
+            Verificar
+        </button></div>
+
+</body>
+
+</html>
