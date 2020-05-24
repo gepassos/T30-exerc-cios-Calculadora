@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cálculo BTU</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='btuclass.js'></script>
+
+    <style>
+        body {
+            background-color: lightblue;
+            color: black;
+            position: absolute;
+            top: 20%;
+            left: 48%;
+            transform: translate(-43%, -50%)
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Cálculo de BTUS</h1>
+    </header>
+    <div>
+        <b><label>Total de Área em M²</label></b>
+        <p><input id="mQuadrado" type="number"> </p>
+        <div>
+        </div>
+        <b><label>Total de pessoas no ambiente</label></b>
+        <p> <input id="qtdPessoas" type="number"> </p>
+    </div>
+    <div>
+        <b> <label>Total de Eletrodomésticos</label></b>
+        <p>
+            <input id="totalEletro" type="number">
+        </p>
+
+    </div>
+
+    <div>
+        <input type="button" value="Calcular BTUS" id="buttonBtu" onclick="calcularBtus()">
+    </div>
+
+</body>
+
+</html>
