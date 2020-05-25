@@ -7,7 +7,20 @@
     <title>Cálculo BTU</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='\Calculo BTU\btuclass.js'></script>
+    <script>
+        function calcularBtus() {
+            let area = parseFloat(document.getElementById("mQuadrado").value)
+            let qtdPessoas = parseInt(document.getElementById("qtdPessoas").value)
+            let eletroDom = parseInt(document.getElementById("totalEletro").value)
+
+            //const calc = new Btus(area, qtdPessoas, eletroDom)
+
+            let calculo = eletroDom * 600 + area * 600 + (qtdPessoas - 1) * 600
+
+            return alert(calculo)
+        }
+
+    </script>
 
     <style>
         body {
