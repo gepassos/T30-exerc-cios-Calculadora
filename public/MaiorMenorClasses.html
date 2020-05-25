@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar o Maior</title>
+
+    <script>
+
+
+        class MaiorMenor {
+            constructor(n1, n2) {
+                this.n1 = n1
+                this.n2 = n2
+            }
+
+            VerificarMenor() {
+                this.n1 = parseInt(document.getElementById("numero_1").value)
+                this.n2 = parseInt(document.getElementById("numero_2").value)
+                if (this.n1 == this.n2) {
+                    alert('Os números são iguais')
+                } else {
+                    if (this.n1 < this.n2) {
+                        alert(`O número menor é : ${this.n1}`)
+                    } else if (this.n1 > this.n2) {
+                        alert(`O número menor é : ${this.n2}`)
+                    } else {
+                        alert('Erro')
+                    }
+                }
+            }
+            VerificarMaior() {
+                this.n1 = parseInt(document.getElementById("numero_1").value)
+                this.n2 = parseInt(document.getElementById("numero_2").value)
+                if (this.n1 == this.n2) {
+                    alert('Os números são iguais')
+                } else {
+                    if (this.n1 > this.n2) {
+                        alert(`O número maior é : ${this.n1}`)
+                    } else if (this.n1 < this.n2) {
+                        alert(`O número maior é : ${this.n2}`)
+                    } else {
+                        alert(' Erro ')
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <labe>Calcular número maior</labe>
+    <div>
+        <label>Numero 1</label>
+        <input id="numero_1" type="number">
+    </div>
+    <div>
+        <label>Numero 2</label>
+        <input id="numero_2" type="number">
+    </div>
+
+
+    <div>
+        <input type="button" id="buttonN1" value="Calcular o número maior" onclick="new MaiorMenor().VerificarMaior()">
+    </div>
+    <div>
+        <input type="button" id="buttonN1" value="Calcular o número menor" onclick="new MaiorMenor().VerificarMenor()">
+    </div>
+</body>
+
+</html>
