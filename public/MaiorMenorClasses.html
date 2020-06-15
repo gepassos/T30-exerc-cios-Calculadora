@@ -46,11 +46,13 @@
                 }
             }
         }
+
+        const maiorMenor = new MaiorMenor()
     </script>
 </head>
 
 <body>
-    <labe>Calcular número maior ou menor</labe>
+    <label>Calcular número maior ou menor</label>
     <div>
         <br>
         <label>Numero 1</label>
@@ -67,12 +69,12 @@
 
     <div>
         <br>
-        <input type="button" id="buttonN1" value="Calcular o número maior" onclick="new MaiorMenor().VerificarMaior()">
+        <input type="button" id="buttonN1" value="Calcular o número maior" onclick="maiorMenor.VerificarMaior()">
 
     </div>
     <div>
         <br>
-        <input type="button" id="buttonN1" value="Calcular o número menor" onclick="new MaiorMenor().VerificarMenor()">
+        <input type="button" id="buttonN1" value="Calcular o número menor" onclick="maiorMenor.VerificarMenor()">
     </div>
 </body>
 
