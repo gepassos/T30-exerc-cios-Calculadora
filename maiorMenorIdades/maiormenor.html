@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maior Menor</title>
+
+    <script>
+        /**
+              a) Crianças/ Adolecentes(Menor de Idade <18)    10% 
+              b) Adultos (Maior de Idade >=18 )               20% 
+              c) Idosos  >=50                                 70%  
+  ​
+              Quantidade,  media e porcentagem para todos
+          
+          **/
+        class GerenciadorClientes {
+            constructor() {
+                this.maiorIdade = 0;
+                this.menorIdade = 5000;
+                this.media = 0;
+                this.quantidade = 0;
+                this.somaIdades = 0;
+
+                this.mediaMenor18 = 0;
+                this.quantidadeMenor18 = 0;
+                this.somaMenor18 = 0;
+
+                this.mediaAdulto = 0;
+                this.quantidadeAdulto = 0;
+                this.somaAdulto = 0;
+
+                this.mediaIdoso = 0;
+                this.quantidadeIdoso = 0;
+                this.somaIdoso = 0;
+
+                this.porcentagemMenor18 = 0;
+                this.porcentagemAdulto = 0;
+                this.porcentagemIdoso = 0;
+
+            }
+
+            calcPorcentagemMenor18() {
+                const porcentagem = ((this.quantidadeMenor18 / this.quantidade) * 100);
+                this.porcentagemMenor18 = porcentagem.toFixed(2).concat('%');
+            }
+
+            calcPorcentagemAdulto() {
+                const porcentagem = ((this.quantidadeAdulto / this.quantidade) * 100);
+                this.porcentagemAdulto = porcentagem.toFixed(2).concat('%');
+            }
+
+            calcPorcentagemIdoso() {
+                const porcentagem = ((this.quantidadeIdoso / this.quantidade) * 100);
+                this.porcentagemIdoso = porcentagem.toFixed(2).concat('%');
+            }
+
+            calcPorcentagemGeral() {
+                this.calcPorcentagemMenor18()
+                this.calcPorcentagemAdulto()
+                this.calcPorcentagemIdoso()
+            }
+
+            cadastrar(nome, idade) {
+                this.nome = nome;
+                //Todos
+                this.quantidade = this.quantidade + 1; //acumulador de quantidade
+                this.somaIdades = this.somaIdades + idade; //acumulador de idade (soma de idade em idade)
+                this.media = (this.somaIdades / this.quantidade).toFixed(2);
+
+
+
+
+                //Menores de 18
+                if (idade < 18) {
+                    this.quantidadeMenor18 += 1;
+                    this.somaMenor18 += idade;
+                    this.mediaMenor18 = this.somaMenor18 / this.quantidadeMenor18;
+                    this.calcPorcentagemGeral()
+
+                }
+                if (idade >= 18 && idade < 50) {
+                    this.quantidadeAdulto += 1;
+                    this.somaAdulto += idade;
+                    this.mediaAdulto = this.somaAdulto / this.quantidadeAdulto;
+                    this.calcPorcentagemGeral()
+                }
+                if (idade > 60) {
+                    this.quantidadeIdoso += 1;
+                    this.somaIdoso += idade;
+                    this.mediaIdoso = this.somaIdoso / this.quantidadeIdoso;
+                    this.calcPorcentagemGeral()
+                }
+
+                if (idade > this.maiorIdade) {
+                    this.maiorIdade = idade;
+                    this.nomeMaiorIdade = nome;
+                }
+
+                if (idade < this.menorIdade) {
+                    this.menorIdade = idade;
+                    this.nomeMenorIdade = nome;
+
+                }
+            }
+        }
+
+        var gc = new GerenciadorClientes();
+
+
+
+
+
+        //DOM
+        function adicionar() {
+            //1)Leitura dos campos
+            let nome = document.getElementById("nome").value;
+            let idade = parseInt(document.getElementById("idade").value);
+
+            //2) Lógica
+            gc.cadastrar(nome, idade);
+
+            //3) Saida
+
+            //Todos
+            document.getElementById("lbl-maior").innerText =
+                gc.nomeMaiorIdade + " " + gc.maiorIdade;
+
+            document.getElementById("lbl-menor").innerText =
+                gc.nomeMenorIdade + " " + gc.menorIdade;
+
+            document.getElementById("lbl-qtd").innerText = gc.quantidade;
+
+            document.getElementById("lbl-soma").innerText = gc.somaIdades;
+
+            document.getElementById("lbl-media").innerText = gc.media;
+
+            //Parte A
+
+            document.getElementById("lbl-qtd-menor18").innerText =
+                gc.quantidadeMenor18;
+
+            document.getElementById("lbl-soma-menor18").innerText = gc.somaMenor18;
+
+            document.getElementById("lbl-media-menor18").innerText =
+                gc.mediaMenor18;
+
+            document.getElementById("lbl-porcentagem-menor18").innerText =
+                gc.porcentagemMenor18;
+            document.getElementById("lbl-qtd-adulto").innerText =
+                gc.quantidadeAdulto;
+
+            document.getElementById("lbl-soma-adulto").innerText = gc.somaAdulto;
+
+            document.getElementById("lbl-media-adulto").innerText =
+                gc.mediaAdulto;
+
+            document.getElementById("lbl-porcentagem-adulto").innerText =
+                gc.porcentagemAdulto;
+
+            document.getElementById("lbl-qtd-idoso").innerText =
+                gc.quantidadeIdoso;
+
+            document.getElementById("lbl-soma-idoso").innerText = gc.somaIdoso;
+
+            document.getElementById("lbl-media-idoso").innerText =
+                gc.mediaIdoso;
+
+            document.getElementById("lbl-porcentagem-idoso").innerText =
+                gc.porcentagemIdoso;
+
+
+
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div>
+            <input type="text" placeholder="Nome" id="nome" />
+            <input type="number" placeholder="Idade" id="idade" />
+            ​
+            <button onclick="adicionar()">Adicionar</button>
+        </div>
+        ​<br>
+        <div>
+            <label> Maior idade: </label>
+            <label id="lbl-maior"></label>
+            <br>
+            <label> Menor idade: </label>
+            <label id="lbl-menor"></label>
+            ​<br>
+            <label> Quantidadede pessoas: </label>
+            <label id="lbl-qtd"></label>
+            ​<br>
+            <label> Soma das idades: </label>
+            <label id="lbl-soma"></label>
+            ​<br>
+            <label> Média das idades: </label>
+            <label id="lbl-media"></label>
+        </div>
+        ​<br>
+        <div>
+            <label> Quantidade Menores 18: </label>
+            <label id="lbl-qtd-menor18"></label>
+            ​<br>
+            <label> Soma Menores 18: </label>
+
+            <label id="lbl-soma-menor18"></label>
+            ​<br>
+            <label> Media Menores 18: </label>
+            <br>
+            <label id="lbl-media-menor18"></label>
+
+            <label>Porcentagem Menor 18:</label>
+            <label id="lbl-porcentagem-menor18"></label>
+        </div>
+        <br>
+        <div>
+            <label> Quantidade de Adultos: </label>
+            <label id="lbl-qtd-adulto"></label>
+            <br>
+            ​
+            <label> Soma Adultos: </label>
+            <label id="lbl-soma-adulto"></label>
+            ​<br>
+            <label> Media Adultos: </label>
+            <label id="lbl-media-adulto"></label>
+            <br>
+            <label>Porcentagem Adulto:</label>
+            <label id="lbl-porcentagem-adulto"></label>
+        </div>
+        <br>
+        <div>
+            <label> Quantidade de Idosos: </label>
+            <label id="lbl-qtd-idoso"></label>
+            ​<br>
+            <label> Soma Idosos: </label>
+            <label id="lbl-soma-idoso"></label>
+            ​<br>
+            <label> Media Idosos: </label>
+            <label id="lbl-media-idoso"></label>
+            <br>
+            <label>Porcentagem Idoso:</label>
+            <label id="lbl-porcentagem-idoso"></label>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
